@@ -51,24 +51,99 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.12;letter
 .serif-accent{font-family:var(--font-serif);font-style:italic;font-weight:400;letter-spacing:0;
   background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 
-/* ============ PRELOADER ============ */
-#preloader{
+/* ============ DOMINO CASCADE INTRO ============ */
+#intro{
   position:fixed;inset:0;z-index:1000;background:var(--bg);
-  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:28px;
-  transition:opacity .6s var(--ease-out),visibility .6s;
+  display:flex;align-items:center;justify-content:center;
+  perspective:1200px;cursor:pointer;
+  transition:opacity .85s var(--ease-out),visibility .85s;
 }
-#preloader.done{opacity:0;visibility:hidden}
-.loader-tiles{display:flex;gap:10px}
-.loader-tile{
-  width:16px;height:28px;border-radius:4px;background:var(--gold-grad);
-  transform-origin:bottom right;animation:tileFall 1.1s var(--ease-out) infinite;
+#intro.out{opacity:0;visibility:hidden}
+.intro-stage{position:relative;transform-style:preserve-3d;animation:introCamera 4.4s var(--ease-out) forwards}
+@keyframes introCamera{
+  0%{transform:rotateX(14deg) scale(.92) translateX(6vw)}
+  60%{transform:rotateX(11deg) scale(1.02) translateX(-2vw)}
+  100%{transform:rotateX(12deg) scale(1) translateX(0)}
 }
-.loader-tile:nth-child(2){animation-delay:.12s}
-.loader-tile:nth-child(3){animation-delay:.24s}
-.loader-tile:nth-child(4){animation-delay:.36s}
-.loader-tile:nth-child(5){animation-delay:.48s}
-@keyframes tileFall{0%,15%{transform:rotate(0)}45%,70%{transform:rotate(78deg)}100%{transform:rotate(0)}}
-.loader-word{font-family:var(--font-head);font-weight:600;font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:var(--muted)}
+.intro-floor{
+  position:absolute;left:50%;top:100%;width:1600px;height:560px;
+  transform:translateX(-50%) rotateX(90deg);transform-origin:top center;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 12%,rgba(233,184,75,.10),transparent 70%),
+    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:100% 100%,64px 64px,64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 62% at 50% 18%,#000 35%,transparent 78%);
+  mask-image:radial-gradient(ellipse 70% 62% at 50% 18%,#000 35%,transparent 78%);
+}
+.intro-row{display:flex;gap:58px;transform-style:preserve-3d}
+.dom{position:relative;width:34px;height:150px;transform-style:preserve-3d;transform-origin:100% 100%}
+.dom.fall{animation:domTip var(--fd,.62s) cubic-bezier(.5,.05,.7,.4) forwards;animation-delay:var(--d)}
+@keyframes domTip{
+  0%{transform:rotate(0)}
+  74%{transform:rotate(76deg)}
+  86%{transform:rotate(70.5deg)}
+  100%{transform:rotate(73deg)}
+}
+.dom:last-child.fall{animation-name:domTipFlat}
+@keyframes domTipFlat{
+  0%{transform:rotate(0)}
+  70%{transform:rotate(88deg)}
+  82%{transform:rotate(82deg)}
+  100%{transform:rotate(87deg)}
+}
+.dom .face{position:absolute;border-radius:6px}
+.dom .face.front{
+  inset:0;background:linear-gradient(168deg,#23232a 0%,#141417 55%,#0f0f12 100%);
+  border:1px solid rgba(233,184,75,.34);box-shadow:inset 0 0 18px rgba(0,0,0,.55);
+  display:flex;flex-direction:column;
+}
+.dom .face.side{
+  top:0;bottom:0;width:14px;right:-14px;transform:rotateY(90deg);transform-origin:left center;
+  background:linear-gradient(180deg,#0d0d10,#08080a);border:1px solid rgba(233,184,75,.14);
+}
+.dom .face.top{
+  left:0;right:0;height:14px;top:-14px;transform:rotateX(-90deg);transform-origin:center bottom;
+  background:linear-gradient(90deg,#1d1d22,#131316);border:1px solid rgba(233,184,75,.22);
+}
+.dom .half{flex:1;position:relative}
+.dom .half+.half{border-top:1.5px solid rgba(233,184,75,.4)}
+.dom .pip{position:absolute;width:6px;height:6px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#F6D98A,#B8842A 80%);
+  box-shadow:0 0 6px rgba(233,184,75,.5);transform:translate(-50%,-50%)}
+.dom .dshadow{
+  position:absolute;bottom:-8px;left:-8px;right:-10px;height:16px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(0,0,0,.65),transparent 70%);
+  transform:rotateX(90deg) translateZ(-8px);
+}
+.dom.fall .dshadow{animation:domSh var(--fd,.62s) ease-in forwards;animation-delay:var(--d)}
+@keyframes domSh{to{right:-120px;opacity:.85}}
+.intro-glint{
+  position:absolute;top:-30%;bottom:-10%;width:90px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(246,217,138,.12),transparent);
+  transform:skewX(-14deg);left:-140px;animation:introGlint 2.6s ease-in-out .4s forwards;
+}
+@keyframes introGlint{to{left:110%}}
+.intro-skip{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-head);font-size:12px;font-weight:600;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--muted);opacity:0;animation:fadeUp .8s 1.6s forwards;
+}
+@media(max-width:768px){
+  .intro-row{gap:34px}
+  .dom{width:24px;height:106px}
+  .dom .face.side{width:10px;right:-10px}
+  .dom .face.top{height:10px;top:-10px}
+}
+
+/* Hero entrance gated until the intro finishes */
+.hero-badge,.hero-sub,.hero-ctas,.hero-stats,.scroll-hint{opacity:0}
+.intro-done .hero-badge{animation:fadeUp .9s var(--ease-out) .3s forwards}
+.intro-done .hero-sub{animation:fadeUp 1s var(--ease-out) .85s forwards}
+.intro-done .hero-ctas{animation:fadeUp 1s var(--ease-out) 1.05s forwards}
+.intro-done .hero-stats{animation:fadeUp 1s var(--ease-out) 1.3s forwards}
+.intro-done .scroll-hint{animation:fadeUp 1s 1.75s forwards}
+.intro-done .hero h1 .word span{animation:wordUp 1s var(--ease-out) forwards;animation-delay:var(--d)}
 
 /* ============ AMBIENT BACKGROUND ============ */
 .orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0;opacity:.5}
@@ -144,19 +219,18 @@ main,header.site-nav,footer{position:relative;z-index:2}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(233,184,75,.55)}60%{box-shadow:0 0 0 9px rgba(233,184,75,0)}}
 .hero h1{font-size:clamp(42px,7.2vw,86px);font-weight:800;margin-bottom:28px}
 .hero h1 .word{display:inline-block;overflow:hidden;vertical-align:bottom}
-.hero h1 .word span{display:inline-block;transform:translateY(110%);animation:wordUp 1s var(--ease-out) forwards;animation-delay:var(--d)}
+.hero h1 .word span{display:inline-block;transform:translateY(110%)}
 @keyframes wordUp{to{transform:translateY(0)}}
-.hero-sub{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:620px;margin:0 auto 42px;opacity:0;animation:fadeUp 1s var(--ease-out) .9s forwards}
-.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 1s var(--ease-out) 1.1s forwards}
+.hero-sub{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:620px;margin:0 auto 42px}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
 .hero-stats{
   display:flex;justify-content:center;gap:clamp(28px,6vw,80px);margin-top:76px;flex-wrap:wrap;
-  opacity:0;animation:fadeUp 1s var(--ease-out) 1.35s forwards;
 }
 .hero-stat{text-align:center}
 .hero-stat b{display:block;font-family:var(--font-head);font-size:clamp(26px,3.4vw,38px);font-weight:700;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero-stat small{font-size:13px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);opacity:0;animation:fadeUp 1s 1.8s forwards}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%)}
 .scroll-hint .mouse{width:24px;height:38px;border:1.5px solid var(--muted);border-radius:14px;position:relative;margin-inline:auto}
 .scroll-hint .mouse::after{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:3px;height:7px;border-radius:3px;background:var(--gold);animation:wheel 1.8s infinite}
 @keyframes wheel{0%{opacity:1;transform:translate(-50%,0)}70%{opacity:0;transform:translate(-50%,12px)}100%{opacity:0}}
@@ -366,19 +440,22 @@ footer{border-top:1px solid var(--border);padding:52px 0 40px;background:var(--b
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
   .hero h1 .word span{transform:none}
-  .hero-sub,.hero-ctas,.hero-stats{opacity:1}
+  .hero-badge,.hero-sub,.hero-ctas,.hero-stats,.scroll-hint{opacity:1}
 }
 </style>
 </head>
 <body>
 
-<!-- Preloader -->
-<div id="preloader" aria-hidden="true">
-  <div class="loader-tiles">
-    <div class="loader-tile"></div><div class="loader-tile"></div><div class="loader-tile"></div><div class="loader-tile"></div><div class="loader-tile"></div>
+<!-- Domino cascade intro -->
+<div id="intro" aria-hidden="true">
+  <div class="intro-stage">
+    <div class="intro-floor"></div>
+    <div class="intro-row" id="introRow"></div>
+    <div class="intro-glint"></div>
   </div>
-  <div class="loader-word">Domino Websites</div>
+  <div class="intro-skip">Click to skip</div>
 </div>
+<noscript><style>#intro{display:none}.hero-badge,.hero-sub,.hero-ctas,.hero-stats,.scroll-hint{opacity:1!important}</style></noscript>
 
 <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
 <div class="grain"></div>
@@ -413,7 +490,7 @@ footer{border-top:1px solid var(--border);padding:52px 0 40px;background:var(--b
 <section class="hero" id="top">
   <div class="hero-domino-field" id="dominoField" aria-hidden="true"></div>
   <div class="container hero-inner">
-    <div class="hero-badge" style="opacity:0;animation:fadeUp .9s var(--ease-out) .35s forwards">
+    <div class="hero-badge">
       <span class="pulse"></span> Websites for local businesses that mean business
     </div>
     <h1 id="heroTitle">
@@ -683,12 +760,60 @@ footer{border-top:1px solid var(--border);padding:52px 0 40px;background:var(--b
 "use strict";
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Preloader */
-window.addEventListener('load', () => {
-  setTimeout(() => document.getElementById('preloader').classList.add('done'), reduced ? 0 : 900);
-});
-/* Safety: never trap the user behind the preloader */
-setTimeout(() => document.getElementById('preloader').classList.add('done'), 3500);
+/* ===== Domino cascade intro ===== */
+const intro = document.getElementById('intro');
+const introRow = document.getElementById('introRow');
+const pipMap = {
+  1:[[50,50]], 2:[[30,30],[70,70]], 3:[[28,28],[50,50],[72,72]],
+  4:[[30,30],[70,30],[30,70],[70,70]],
+  5:[[28,28],[72,28],[50,50],[28,72],[72,72]],
+  6:[[30,24],[70,24],[30,50],[70,50],[30,76],[70,76]]
+};
+function domHalf(n){
+  const d = document.createElement('div'); d.className = 'half';
+  (pipMap[n]||[]).forEach(([x,y]) => {
+    const p = document.createElement('span'); p.className = 'pip';
+    p.style.left = x+'%'; p.style.top = y+'%'; d.appendChild(p);
+  });
+  return d;
+}
+function finishIntro(){
+  if (document.body.classList.contains('intro-done')) return;
+  document.body.classList.add('intro-done');
+  if (intro){ intro.classList.add('out'); setTimeout(() => intro.remove(), 950); }
+  try { sessionStorage.setItem('dw-intro','1'); } catch(e){}
+  initCounters();
+}
+const seenIntro = (() => { try { return sessionStorage.getItem('dw-intro'); } catch(e){ return null; } })();
+if (reduced || seenIntro || !intro || !introRow){
+  if (intro) intro.remove();
+  document.body.classList.add('intro-done');
+  setTimeout(() => initCounters(), 0);
+} else {
+  const N = window.innerWidth < 768 ? 9 : 13;
+  for (let i = 0; i < N; i++){
+    const dom = document.createElement('div'); dom.className = 'dom';
+    const front = document.createElement('div'); front.className = 'face front';
+    front.appendChild(domHalf(1 + Math.floor(Math.random()*6)));
+    front.appendChild(domHalf(1 + Math.floor(Math.random()*6)));
+    const side = document.createElement('div'); side.className = 'face side';
+    const top = document.createElement('div'); top.className = 'face top';
+    const sh = document.createElement('div'); sh.className = 'dshadow';
+    dom.appendChild(front); dom.appendChild(side); dom.appendChild(top); dom.appendChild(sh);
+    introRow.appendChild(dom);
+  }
+  const start = 900, stagger = 150;
+  [...introRow.children].forEach((d,i) => {
+    d.style.setProperty('--d', (start + i*stagger)/1000 + 's');
+    d.classList.add('fall');
+  });
+  const cascadeEnd = start + (N-1)*stagger + 650;
+  setTimeout(finishIntro, cascadeEnd + 250);
+  intro.addEventListener('click', finishIntro);
+  window.addEventListener('keydown', finishIntro, {once:true});
+  /* Safety: never trap the user behind the intro */
+  setTimeout(finishIntro, 6000);
+}
 
 /* Year */
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -803,7 +928,11 @@ const runCounter = el => {
 const ioC = new IntersectionObserver(entries => {
   entries.forEach(en => { if (en.isIntersecting) { runCounter(en.target); ioC.unobserve(en.target); } });
 }, {threshold:.6});
-document.querySelectorAll('[data-count]').forEach(el => ioC.observe(el));
+let countersInit = false;
+function initCounters(){
+  if (countersInit) return; countersInit = true;
+  document.querySelectorAll('[data-count]').forEach(el => ioC.observe(el));
+}
 
 /* Card glow tracking */
 document.querySelectorAll('.glow-track').forEach(card => {
