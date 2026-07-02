@@ -90,18 +90,17 @@ main,header.site-nav,footer{position:relative;z-index:2}
 .reveal{opacity:0;transform:translateY(42px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out);transition-delay:var(--rd,0s)}
 .reveal.in{opacity:1;transform:translateY(0)}
 
-/* billing toggle */
-.bill-toggle{display:flex;justify-content:center;align-items:center;gap:16px;margin-bottom:46px;flex-wrap:wrap}
-.bill-toggle .opt{font-family:var(--font-head);font-weight:600;font-size:15px;color:var(--muted);cursor:pointer;transition:color .3s;display:inline-flex;align-items:center;gap:9px}
-.bill-toggle .opt.on{color:var(--text)}
-.bill-switch{width:58px;height:30px;border-radius:100px;background:var(--surface-2);border:1px solid var(--border-strong);position:relative;cursor:pointer;transition:border-color .3s;flex-shrink:0}
-.bill-switch:hover{border-color:var(--gold)}
-.bill-switch::after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--gold-grad);box-shadow:0 2px 8px rgba(233,184,75,.4);transition:transform .35s var(--ease-spring)}
-.bill-switch.annual::after{transform:translateX(28px)}
-.freebadge{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-2);border:1px solid rgba(233,184,75,.35);background:rgba(233,184,75,.08);padding:4px 11px;border-radius:100px}
-.save-chip{display:inline-block;margin-left:9px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#141005;background:var(--gold-grad);padding:3px 11px;border-radius:100px;vertical-align:2px}
-.sub-price.pop,.sub-note.pop{animation:pricePop .4s var(--ease-out)}
-@keyframes pricePop{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
+/* annual offer */
+.annual-offer{
+  display:flex;align-items:flex-start;gap:12px;margin-top:16px;padding:14px 18px;border-radius:14px;
+  background:rgba(233,184,75,.07);border:1px solid rgba(233,184,75,.3);
+  font-size:13.5px;color:#DAD6CC;line-height:1.55;
+}
+.annual-offer b{color:var(--gold-2);font-family:var(--font-head);font-size:15px}
+.ao-badge{
+  flex-shrink:0;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:#141005;background:var(--gold-grad);padding:4px 12px;border-radius:100px;margin-top:2px;
+}
 
 /* pricing */
 .pricing{padding:20px 0 90px}
@@ -243,17 +242,12 @@ footer{border-top:1px solid var(--border);padding:52px 0 40px;background:var(--b
   <div class="container">
     <div class="eyebrow">Pricing</div>
     <h1>Simple, honest pricing.<br>No surprises, <span class="serif-accent">ever.</span></h1>
-    <p>One upfront build fee. One small annual subscription that covers hosting, security, and updates. That's the whole story.</p>
+    <p>One upfront build fee. One small monthly subscription that covers hosting, security, and updates — or save 17% by billing annually. That's the whole story.</p>
   </div>
 </section>
 
 <section class="pricing">
   <div class="container">
-    <div class="bill-toggle reveal">
-      <span class="opt" id="optMonthly">Monthly</span>
-      <button class="bill-switch annual" id="billSwitch" role="switch" aria-checked="true" aria-label="Toggle annual billing"></button>
-      <span class="opt on" id="optAnnual">Annual <span class="freebadge">2 months free</span></span>
-    </div>
     <div class="plans">
 
       <!-- BASIC -->
@@ -262,7 +256,11 @@ footer{border-top:1px solid var(--border);padding:52px 0 40px;background:var(--b
         <h2 class="plan-title">Hands-Free Credibility</h2>
         <p class="plan-for">For local service businesses — plumbers, roofers, lawyers, cafés — who need an immaculate, professional online presence that validates their brand the moment someone searches.</p>
         <div class="plan-price"><span class="amount">$600</span><span class="once">one-time build</span></div>
-        <p class="plan-sub">then <b class="sub-price" data-m="$30 / month" data-a="$300 / year">$300 / year</b><span class="save-chip">save $60</span><small class="sub-note" data-m="hosting, security &amp; updates included — cancel anytime" data-a="2 months free — 12 months for the price of 10">2 months free — 12 months for the price of 10</small></p>
+        <p class="plan-sub">then <b>$30 / month</b><small>hosting, security &amp; updates included — cancel anytime</small></p>
+        <div class="annual-offer">
+          <span class="ao-badge">Save 17%</span>
+          <span>Or bill annually: <b>$300 / year</b> instead of $360 — that's 2 months free.</span>
+        </div>
         <div class="plan-divider"></div>
         <ul>
           <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Premium 1–3 page website</b> — e.g. Home, Services, Contact — custom-designed for your brand</span></li>
@@ -283,7 +281,11 @@ footer{border-top:1px solid var(--border);padding:52px 0 40px;background:var(--b
         <h2 class="plan-title">Complete Local Growth</h2>
         <p class="plan-for">For ambitious businesses — real estate teams, clinics, boutique gyms, multi-location contractors — who want to look bigger than their competitors and turn visitors into booked appointments.</p>
         <div class="plan-price"><span class="amount">$1,500</span><span class="once">one-time build</span></div>
-        <p class="plan-sub">then <b class="sub-price" data-m="$60 / month" data-a="$600 / year">$600 / year</b><span class="save-chip">save $120</span><small class="sub-note" data-m="hosting, security &amp; unlimited updates included — cancel anytime" data-a="2 months free — 12 months for the price of 10">2 months free — 12 months for the price of 10</small></p>
+        <p class="plan-sub">then <b>$60 / month</b><small>hosting, security &amp; unlimited updates included — cancel anytime</small></p>
+        <div class="annual-offer">
+          <span class="ao-badge">Save 17%</span>
+          <span>Or bill annually: <b>$600 / year</b> instead of $720 — that's 2 months free.</span>
+        </div>
         <div class="plan-divider"></div>
         <ul>
           <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Full multi-page site — up to 7 custom pages</b> — Home, About, dedicated Service pages, Project Gallery, Contact</span></li>
@@ -399,26 +401,6 @@ const io = new IntersectionObserver(entries => {
 }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* Monthly / Annual billing toggle */
-const billSwitch = document.getElementById('billSwitch');
-const optM = document.getElementById('optMonthly');
-const optA = document.getElementById('optAnnual');
-let annual = true;
-function renderBilling(){
-  document.querySelectorAll('.sub-price, .sub-note').forEach(el => {
-    el.textContent = annual ? el.dataset.a : el.dataset.m;
-    el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop');
-  });
-  document.querySelectorAll('.save-chip').forEach(c => c.style.display = annual ? 'inline-block' : 'none');
-  billSwitch.classList.toggle('annual', annual);
-  billSwitch.setAttribute('aria-checked', annual);
-  optA.classList.toggle('on', annual);
-  optM.classList.toggle('on', !annual);
-}
-function setBilling(v){ annual = v; renderBilling(); }
-billSwitch.addEventListener('click', () => setBilling(!annual));
-optM.addEventListener('click', () => setBilling(false));
-optA.addEventListener('click', () => setBilling(true));
 })();
 </script>
 </body>
