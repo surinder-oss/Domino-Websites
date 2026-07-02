@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Domino Websites</title>
+<meta name="description" content="Simple, honest pricing. A premium website for your local business — one upfront build fee, one small annual subscription, everything handled for you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='4' y='2' width='24' height='28' rx='5' fill='%230A0A0B' stroke='%23E9B84B' stroke-width='2'/><circle cx='16' cy='10' r='2.6' fill='%23E9B84B'/><line x1='7' y1='16' x2='25' y2='16' stroke='%23E9B84B' stroke-width='1.6'/><circle cx='11' cy='23' r='2.6' fill='%23E9B84B'/><circle cx='21' cy='23' r='2.6' fill='%23E9B84B'/></svg>">
+<style>
+:root{
+  --bg:#0A0A0B;
+  --bg-2:#0F0F11;
+  --surface:#141416;
+  --surface-2:#1A1A1D;
+  --border:rgba(255,255,255,.08);
+  --border-strong:rgba(255,255,255,.14);
+  --text:#F5F2EA;
+  --muted:#A6A199;
+  --gold:#E9B84B;
+  --gold-2:#F6D98A;
+  --gold-deep:#B8842A;
+  --gold-grad:linear-gradient(135deg,#F6D98A 0%,#E9B84B 45%,#B8842A 100%);
+  --radius:20px;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --font-head:'Sora',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-serif:'Instrument Serif',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:#0A0A0B}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.container{width:min(1180px,92%);margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.12;letter-spacing:-.02em}
+.serif-accent{font-family:var(--font-serif);font-style:italic;font-weight:400;letter-spacing:0;
+  background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+/* ambient */
+.orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0;opacity:.5}
+.orb-1{width:560px;height:560px;background:radial-gradient(circle,rgba(233,184,75,.16),transparent 65%);top:-160px;left:-120px;animation:drift1 22s ease-in-out infinite}
+.orb-2{width:640px;height:640px;background:radial-gradient(circle,rgba(120,90,220,.12),transparent 65%);top:30%;right:-220px;animation:drift2 28s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,50px)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,-60px)}}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");}
+main,header.site-nav,footer{position:relative;z-index:2}
+
+/* nav */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+.site-nav.scrolled{background:rgba(10,10,11,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--font-head);font-weight:700;font-size:19px}
+.logo-tile{width:26px;height:34px;border-radius:7px;border:2px solid var(--gold);position:relative;flex-shrink:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:5px 0;transition:transform .5s var(--ease-spring)}
+.logo:hover .logo-tile{transform:rotate(12deg)}
+.logo-tile::before,.logo-tile::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.logo-tile span{width:16px;height:1.5px;background:var(--gold)}
+.logo em{font-style:normal;color:var(--gold)}
+.nav-links{display:flex;gap:34px;align-items:center;list-style:none}
+.nav-links a{font-size:14.5px;font-weight:500;color:var(--muted);transition:color .25s;position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1.5px;background:var(--gold);transition:width .3s var(--ease-out)}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a.active::after{width:100%}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--font-head);font-weight:600;
+  border-radius:100px;transition:transform .3s var(--ease-spring),box-shadow .3s,background .3s;border:none;font-size:15px;cursor:pointer}
+.btn-gold{background:var(--gold-grad);color:#141005;padding:13px 26px;box-shadow:0 4px 24px rgba(233,184,75,.25)}
+.btn-gold:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 10px 36px rgba(233,184,75,.4)}
+.btn-ghost{background:transparent;color:var(--text);padding:12px 24px;border:1px solid var(--border-strong)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.btn-lg{padding:17px 34px;font-size:16px}
+.nav-cta{padding:11px 22px;font-size:14px}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;padding:6px}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:.3s;border-radius:2px}
+
+/* header */
+.page-head{padding:180px 0 70px;text-align:center;position:relative;overflow:hidden}
+.page-head .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-head);font-size:13px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;opacity:0;animation:fadeUp .9s var(--ease-out) .15s forwards}
+.page-head h1{font-size:clamp(38px,6vw,68px);font-weight:800;margin-bottom:20px;opacity:0;animation:fadeUp 1s var(--ease-out) .3s forwards}
+.page-head p{color:var(--muted);font-size:clamp(16px,1.9vw,19px);max-width:640px;margin:0 auto;opacity:0;animation:fadeUp 1s var(--ease-out) .5s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(42px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out);transition-delay:var(--rd,0s)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* pricing */
+.pricing{padding:20px 0 90px}
+.plans{display:grid;grid-template-columns:1fr 1.08fr;gap:26px;max-width:1020px;margin-inline:auto;align-items:start}
+.plan{
+  position:relative;background:var(--surface);border:1px solid var(--border);border-radius:26px;
+  padding:44px 40px;overflow:hidden;
+  transition:transform .45s var(--ease-out),border-color .45s,box-shadow .45s;
+}
+.plan:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.plan-basic:hover{border-color:rgba(255,255,255,.22)}
+.plan-top{border-color:rgba(233,184,75,.4);background:linear-gradient(165deg,#191512 0%,#141416 60%)}
+.plan-top::before{content:'';position:absolute;inset:0;background:radial-gradient(560px circle at 50% -8%,rgba(233,184,75,.16),transparent 60%);pointer-events:none}
+.plan-top:hover{border-color:rgba(233,184,75,.7)}
+.plan-flag{
+  position:absolute;top:22px;right:-38px;transform:rotate(38deg);
+  background:var(--gold-grad);color:#141005;font-family:var(--font-head);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;padding:7px 46px;
+}
+.plan-name{font-size:14px;font-family:var(--font-head);font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.plan-title{font-size:26px;margin-bottom:12px}
+.plan-for{font-size:14.5px;color:var(--muted);min-height:66px;margin-bottom:26px}
+.plan-price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.plan-price .amount{font-family:var(--font-head);font-weight:800;font-size:clamp(42px,4.6vw,56px);line-height:1;
+  background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.plan-price .once{font-size:14px;color:var(--muted)}
+.plan-sub{margin-top:8px;font-size:15px;color:var(--text);font-weight:500}
+.plan-sub b{color:var(--gold-2)}
+.plan-sub small{display:block;color:var(--muted);font-weight:400;font-size:13px;margin-top:2px}
+.plan-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-strong),transparent);margin:30px 0}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+.plan li{display:flex;gap:13px;font-size:14.8px;color:#DAD6CC}
+.plan li b{color:var(--text)}
+.plan li .tick{flex-shrink:0;width:21px;height:21px;border-radius:50%;margin-top:1px;
+  background:rgba(233,184,75,.1);border:1px solid rgba(233,184,75,.35);
+  display:flex;align-items:center;justify-content:center}
+.plan li .tick svg{width:11px;height:11px;stroke:var(--gold);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.plan .btn{width:100%;margin-top:34px}
+.plan-note{margin-top:16px;text-align:center;font-size:12.5px;color:var(--muted)}
+
+/* value strip */
+.value-strip{border-block:1px solid var(--border);background:var(--bg-2);padding:70px 0}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.value-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:30px 28px;transition:transform .4s var(--ease-out),border-color .4s}
+.value-card:hover{transform:translateY(-6px);border-color:rgba(233,184,75,.4)}
+.value-card h3{font-size:17px;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.value-card h3 svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.value-card p{font-size:14px;color:var(--muted)}
+
+/* faq */
+.faq{padding:100px 0}
+.faq .section-title{font-size:clamp(30px,4vw,44px);text-align:center;margin-bottom:50px}
+.faq-list{max-width:760px;margin-inline:auto;display:flex;flex-direction:column;gap:14px}
+details{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .3s}
+details:hover,details[open]{border-color:rgba(233,184,75,.35)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:20px 24px;font-family:var(--font-head);font-weight:600;font-size:15.5px}
+summary::-webkit-details-marker{display:none}
+summary .chev{flex-shrink:0;transition:transform .35s var(--ease-out);color:var(--gold)}
+details[open] summary .chev{transform:rotate(45deg)}
+.faq-body{padding:0 24px 22px;color:var(--muted);font-size:14.8px}
+
+/* cta */
+.cta-final{padding:40px 0 110px}
+.cta-panel{position:relative;border-radius:32px;overflow:hidden;padding:clamp(46px,6vw,76px) clamp(26px,6vw,80px);
+  background:linear-gradient(150deg,#17130A 0%,#0F0E0B 55%,#141009 100%);
+  border:1px solid rgba(233,184,75,.25);text-align:center}
+.cta-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(700px circle at 50% -10%,rgba(233,184,75,.18),transparent 60%)}
+.cta-panel h2{font-size:clamp(28px,4vw,44px);margin-bottom:14px;position:relative}
+.cta-panel p{color:var(--muted);font-size:16.5px;max-width:540px;margin:0 auto 34px;position:relative}
+.cta-panel .btn{position:relative}
+
+/* footer */
+footer{border-top:1px solid var(--border);padding:52px 0 40px;background:var(--bg-2)}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap}
+.foot-links{display:flex;gap:26px;list-style:none}
+.foot-links a{font-size:14px;color:var(--muted);transition:color .25s}
+.foot-links a:hover{color:var(--gold)}
+.foot-copy{font-size:13px;color:var(--muted)}
+
+@media(max-width:900px){
+  .plans{grid-template-columns:1fr;max-width:560px}
+  .plan-for{min-height:0}
+  .value-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{position:fixed;inset:0;background:rgba(10,10,11,.97);backdrop-filter:blur(20px);
+    flex-direction:column;justify-content:center;gap:34px;transform:translateY(-100%);
+    transition:transform .5s var(--ease-out);z-index:-1}
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{font-size:22px;font-family:var(--font-head)}
+  .hamburger{display:flex;z-index:10}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-cta{display:none}
+  .page-head{padding:150px 0 50px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .page-head .eyebrow,.page-head h1,.page-head p{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div><div class="orb orb-2"></div>
+<div class="grain"></div>
+
+<header class="site-nav" id="siteNav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Domino Websites home">
+      <span class="logo-tile" aria-hidden="true"><span></span></span>
+      Domino<em>.</em>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#why">Why a Website</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#work">Our Work</a></li>
+        <li><a href="pricing.html" class="active" aria-current="page">Pricing</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="index.html#contact" class="btn btn-gold nav-cta">Get a Free Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-head">
+  <div class="container">
+    <div class="eyebrow">Pricing</div>
+    <h1>Simple, honest pricing.<br>No surprises, <span class="serif-accent">ever.</span></h1>
+    <p>One upfront build fee. One small annual subscription that covers hosting, security, and updates. That's the whole story.</p>
+  </div>
+</section>
+
+<section class="pricing">
+  <div class="container">
+    <div class="plans">
+
+      <!-- BASIC -->
+      <div class="plan plan-basic reveal">
+        <div class="plan-name">Basic</div>
+        <h2 class="plan-title">Hands-Free Credibility</h2>
+        <p class="plan-for">For local service businesses — plumbers, roofers, lawyers, cafés — who need an immaculate, professional online presence that validates their brand the moment someone searches.</p>
+        <div class="plan-price"><span class="amount">$600</span><span class="once">one-time build</span></div>
+        <p class="plan-sub">then <b>$300 / year</b><small>covers hosting, security &amp; updates — billed annually</small></p>
+        <div class="plan-divider"></div>
+        <ul>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Premium 1–3 page website</b> — e.g. Home, Services, Contact — custom-designed for your brand</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Lightning-fast performance</b> — lightweight, hand-coded build that loads in under 1 second</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Enterprise-grade hosting &amp; lifetime SSL</b> — secure by design, with no database to hack</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Lead capture form</b> — inquiries land straight in your existing email inbox</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>100% mobile-optimized</b> — flawless on iPhone, Android, and tablets</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>6 content updates per year</b> — text changes, photo swaps, holiday hours — done fast</span></li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-ghost btn-lg">Start with Basic</a>
+        <p class="plan-note">Build fee charged at launch · cancel the subscription anytime</p>
+      </div>
+
+      <!-- TOP -->
+      <div class="plan plan-top reveal" style="--rd:.15s">
+        <div class="plan-flag">Most Popular</div>
+        <div class="plan-name">Top Tier</div>
+        <h2 class="plan-title">Complete Local Growth</h2>
+        <p class="plan-for">For ambitious businesses — real estate teams, clinics, boutique gyms, multi-location contractors — who want to look bigger than their competitors and turn visitors into booked appointments.</p>
+        <div class="plan-price"><span class="amount">$1,500</span><span class="once">one-time build</span></div>
+        <p class="plan-sub">then <b>$600 / year</b><small>covers hosting, security &amp; unlimited updates — billed annually</small></p>
+        <div class="plan-divider"></div>
+        <ul>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Full multi-page site — up to 7 custom pages</b> — Home, About, dedicated Service pages, Project Gallery, Contact</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Premium copywriting included</b> — persuasive, industry-specific headlines and text written for you</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Automated review syncing</b> — your 5-star Google &amp; Yelp reviews stream onto your homepage automatically</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Advanced lead flow</b> — detailed quote-request forms plus embedded booking calendars so customers book directly</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Local SEO foundation</b> — meta tags, structured schema data, and keyword formatting so Google indexes you correctly</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Unlimited standard updates</b> — your site always stays current (fair-use: 2 hours/month)</span></li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-gold btn-lg">Start with Top Tier</a>
+        <p class="plan-note">Build fee charged at launch · cancel the subscription anytime</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="value-strip">
+  <div class="container">
+    <div class="value-grid">
+      <div class="value-card reveal">
+        <h3><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Everything handled for you</h3>
+        <p>Hosting, security, SSL, updates — all included in the annual subscription. You run your business; we run your website.</p>
+      </div>
+      <div class="value-card reveal" style="--rd:.12s">
+        <h3><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>No platform fees</h3>
+        <p>No WordPress plugins to renew, no Squarespace or Wix monthly bills. One transparent annual price and nothing else.</p>
+      </div>
+      <div class="value-card reveal" style="--rd:.24s">
+        <h3><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-6.22-8.56"/><path d="M22 4L12 14l-3-3"/></svg>Love it before you pay</h3>
+        <p>We design first. The build fee is only charged when your site launches — if you don't love the design, you don't pay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title reveal">Questions, <span class="serif-accent">answered.</span></h2>
+    <div class="faq-list">
+      <details class="reveal">
+        <summary>What counts as a content update?<span class="chev">＋</span></summary>
+        <div class="faq-body">Changing text, swapping a photo, updating your hours or contact info — the everyday changes a business needs. Most updates are completed within 1–2 business days. Full redesigns or brand-new pages are quoted separately.</div>
+      </details>
+      <details class="reveal" style="--rd:.08s">
+        <summary>How fast will my website launch?<span class="chev">＋</span></summary>
+        <div class="faq-body">Most Basic sites launch in about a week. Top Tier sites typically take 2–3 weeks depending on the number of pages and how quickly we receive your photos and business details.</div>
+      </details>
+      <details class="reveal" style="--rd:.16s">
+        <summary>When am I charged?<span class="chev">＋</span></summary>
+        <div class="faq-body">The build fee is charged once, at launch — after you've seen and approved your website. The annual subscription starts the same day and renews automatically every 365 days. You can cancel the renewal anytime.</div>
+      </details>
+      <details class="reveal" style="--rd:.24s">
+        <summary>What happens if I cancel the subscription?<span class="chev">＋</span></summary>
+        <div class="faq-body">The site is yours — we don't hold it hostage. If you cancel, your site stays up until the end of your paid year, and we'll hand over the files so you can host it anywhere.</div>
+      </details>
+      <details class="reveal" style="--rd:.32s">
+        <summary>Can I upgrade from Basic to Top Tier later?<span class="chev">＋</span></summary>
+        <div class="faq-body">Absolutely. You only pay the difference in build fees, and your subscription adjusts at the next renewal. Many clients start with Basic and upgrade once the new leads start rolling in.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-panel reveal">
+      <h2>Not sure which tier <span class="serif-accent">fits you?</span></h2>
+      <p>Tell us about your business and we'll recommend the right fit — with a free, no-pressure quote.</p>
+      <a href="index.html#contact" class="btn btn-gold btn-lg">Get My Free Quote</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <a href="index.html" class="logo" aria-label="Domino Websites home">
+      <span class="logo-tile" aria-hidden="true"><span></span></span>
+      Domino<em>.</em>
+    </a>
+    <ul class="foot-links">
+      <li><a href="index.html#why">Why a Website</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="foot-copy">© <span id="year"></span> Domino Websites. Beautiful websites for local businesses.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const nav = document.getElementById('siteNav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+const burger = document.getElementById('hamburger');
+const links = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  const open = links.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
