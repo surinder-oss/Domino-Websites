@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Domino Websites</title>
+<meta name="description" content="Get a free, no-pressure quote for your business website. Message Domino Websites on WhatsApp and we'll get right back to you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='4' y='2' width='24' height='28' rx='5' fill='%230A0A0B' stroke='%23E9B84B' stroke-width='2'/><circle cx='16' cy='10' r='2.6' fill='%23E9B84B'/><line x1='7' y1='16' x2='25' y2='16' stroke='%23E9B84B' stroke-width='1.6'/><circle cx='11' cy='23' r='2.6' fill='%23E9B84B'/><circle cx='21' cy='23' r='2.6' fill='%23E9B84B'/></svg>">
+<style>
+:root{
+  --bg:#0A0A0B;--bg-2:#0F0F11;--surface:#141416;--surface-2:#1A1A1D;
+  --border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.14);
+  --text:#F5F2EA;--muted:#A6A199;
+  --gold:#E9B84B;--gold-2:#F6D98A;--gold-deep:#B8842A;
+  --gold-grad:linear-gradient(135deg,#F6D98A 0%,#E9B84B 45%,#B8842A 100%);
+  --radius:20px;
+  --ease-out:cubic-bezier(.22,1,.36,1);--ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --font-head:'Sora',sans-serif;--font-body:'Inter',sans-serif;--font-serif:'Instrument Serif',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:#0A0A0B}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.container{width:min(1180px,92%);margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.12;letter-spacing:-.02em}
+.serif-accent{font-family:var(--font-serif);font-style:italic;font-weight:400;letter-spacing:0;
+  background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0;opacity:.5}
+.orb-1{width:560px;height:560px;background:radial-gradient(circle,rgba(233,184,75,.16),transparent 65%);top:-160px;left:-120px;animation:drift1 22s ease-in-out infinite}
+.orb-2{width:640px;height:640px;background:radial-gradient(circle,rgba(120,90,220,.12),transparent 65%);top:30%;right:-220px;animation:drift2 28s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,50px)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,-60px)}}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");}
+main,header.site-nav,footer{position:relative;z-index:2}
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+.site-nav.scrolled{background:rgba(10,10,11,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--font-head);font-weight:700;font-size:19px}
+.logo-tile{width:26px;height:34px;border-radius:7px;border:2px solid var(--gold);position:relative;flex-shrink:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:5px 0;transition:transform .5s var(--ease-spring)}
+.logo:hover .logo-tile{transform:rotate(12deg)}
+.logo-tile::before,.logo-tile::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.logo-tile span{width:16px;height:1.5px;background:var(--gold)}
+.logo em{font-style:normal;color:var(--gold)}
+.nav-links{display:flex;gap:34px;align-items:center;list-style:none}
+.nav-links a{font-size:14.5px;font-weight:500;color:var(--muted);transition:color .25s;position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1.5px;background:var(--gold);transition:width .3s var(--ease-out)}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a.active::after,.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--font-head);font-weight:600;
+  border-radius:100px;transition:transform .3s var(--ease-spring),box-shadow .3s;border:none;font-size:15px;cursor:pointer}
+.btn-gold{background:var(--gold-grad);color:#141005;padding:13px 26px;box-shadow:0 4px 24px rgba(233,184,75,.25)}
+.btn-gold:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 10px 36px rgba(233,184,75,.4)}
+.btn-lg{padding:17px 34px;font-size:16px}
+.nav-cta{padding:11px 22px;font-size:14px}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;padding:6px}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:.3s;border-radius:2px}
+.page-head{padding:180px 0 50px;text-align:center}
+.page-head .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-head);font-size:13px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;opacity:0;animation:fadeUp .9s var(--ease-out) .15s forwards}
+.page-head h1{font-size:clamp(38px,6vw,68px);font-weight:800;margin-bottom:20px;opacity:0;animation:fadeUp 1s var(--ease-out) .3s forwards}
+.page-head p{color:var(--muted);font-size:clamp(16px,1.9vw,19px);max-width:600px;margin:0 auto;opacity:0;animation:fadeUp 1s var(--ease-out) .5s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(42px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out);transition-delay:var(--rd,0s)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* contact layout */
+.contact{padding:30px 0 100px}
+.contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;max-width:1020px;margin-inline:auto;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:26px;padding:40px 38px}
+.panel h2{font-size:22px;margin-bottom:8px}
+.panel .lead{color:var(--muted);font-size:14.5px;margin-bottom:28px}
+.cta-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cta-form input{
+  background:rgba(255,255,255,.05);border:1px solid var(--border-strong);border-radius:14px;
+  padding:16px 20px;color:var(--text);font-size:15px;font-family:inherit;outline:none;
+  transition:border-color .3s,background .3s;min-height:52px;
+}
+.cta-form input::placeholder{color:#7d786e}
+.cta-form input:focus{border-color:var(--gold);background:rgba(233,184,75,.06)}
+.cta-form button{grid-column:1/-1;justify-content:center}
+.form-msg{margin-top:16px;font-size:14.5px;color:var(--gold-2);font-weight:500;min-height:22px;text-align:center}
+.form-note{margin-top:6px;text-align:center;font-size:12.5px;color:var(--muted)}
+
+/* side panel */
+.side{display:flex;flex-direction:column;gap:22px}
+.side-card{background:var(--surface);border:1px solid var(--border);border-radius:26px;padding:32px 30px;transition:border-color .4s,transform .4s var(--ease-out)}
+.side-card:hover{border-color:rgba(233,184,75,.4);transform:translateY(-4px)}
+.side-card h3{font-size:16px;display:flex;align-items:center;gap:11px;margin-bottom:10px}
+.side-card h3 .ic{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  background:rgba(233,184,75,.09);border:1px solid rgba(233,184,75,.25)}
+.side-card h3 svg{width:19px;height:19px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.side-card h3 .wa{fill:var(--gold);stroke:none}
+.side-card p{font-size:14px;color:var(--muted)}
+.side-card a.link{color:var(--gold);font-weight:600;border-bottom:1px solid rgba(233,184,75,.4)}
+
+/* next steps */
+.next{border-block:1px solid var(--border);background:var(--bg-2);padding:90px 0}
+.next .section-title{font-size:clamp(28px,4vw,42px);text-align:center;margin-bottom:50px}
+.next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin-inline:auto}
+.next-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px 28px;position:relative;
+  transition:transform .4s var(--ease-out),border-color .4s}
+.next-card:hover{transform:translateY(-6px);border-color:rgba(233,184,75,.4)}
+.next-card .num{font-family:var(--font-head);font-weight:800;font-size:34px;line-height:1;margin-bottom:14px;
+  background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.next-card h3{font-size:17px;margin-bottom:8px}
+.next-card p{font-size:14px;color:var(--muted)}
+footer{border-top:1px solid var(--border);padding:52px 0 40px;background:var(--bg-2)}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap}
+.foot-links{display:flex;gap:26px;list-style:none}
+.foot-links a{font-size:14px;color:var(--muted);transition:color .25s}
+.foot-links a:hover{color:var(--gold)}
+.foot-copy{font-size:13px;color:var(--muted)}
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:1fr;max-width:560px}
+  .next-grid{grid-template-columns:1fr;max-width:480px}
+}
+@media(max-width:768px){
+  .nav-links{position:fixed;inset:0;background:rgba(10,10,11,.97);backdrop-filter:blur(20px);
+    flex-direction:column;justify-content:center;gap:34px;transform:translateY(-100%);
+    transition:transform .5s var(--ease-out);z-index:-1}
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{font-size:22px;font-family:var(--font-head)}
+  .hamburger{display:flex;z-index:10}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-cta{display:none}
+  .page-head{padding:150px 0 36px}
+  .cta-form{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .page-head .eyebrow,.page-head h1,.page-head p{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div><div class="orb orb-2"></div>
+<div class="grain"></div>
+
+<header class="site-nav" id="siteNav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Domino Websites home">
+      <span class="logo-tile" aria-hidden="true"><span></span></span>
+      Domino<em>.</em>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html">Our Work</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="#quoteForm" class="btn btn-gold nav-cta">Get a Free Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-head">
+  <div class="container">
+    <div class="eyebrow">Contact</div>
+    <h1>Ready to tip the <span class="serif-accent">first domino?</span></h1>
+    <p>Tell us about your business and get a free, no-pressure quote. If you don't love the design, you don't pay.</p>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="panel reveal">
+        <h2>Get your free quote</h2>
+        <p class="lead">Fill this in and hit the button — your details open in WhatsApp, one tap to send.</p>
+        <form class="cta-form" id="quoteForm" novalidate>
+          <input type="text" name="name" placeholder="Your name" aria-label="Your name" required autocomplete="name">
+          <input type="text" name="business" placeholder="Business name" aria-label="Business name" required autocomplete="organization">
+          <input type="email" name="email" placeholder="Email address" aria-label="Email address" required autocomplete="email">
+          <input type="tel" name="phone" placeholder="Phone number" aria-label="Phone number" required autocomplete="tel">
+          <button type="submit" class="btn btn-gold btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Get My Free Quote on WhatsApp
+          </button>
+        </form>
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+        <p class="form-note">Free quote · no pressure · you only pay at launch</p>
+      </div>
+
+      <div class="side">
+        <div class="side-card reveal" style="--rd:.1s">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" class="wa"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>WhatsApp us directly</h3>
+          <p>Prefer to just say hi? Message us anytime — we usually reply within the hour during business hours.</p>
+          <p style="margin-top:10px"><a class="link" href="https://wa.me/14036294003" target="_blank" rel="noopener">Open WhatsApp chat →</a></p>
+        </div>
+        <div class="side-card reveal" style="--rd:.2s">
+          <h3><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>Fast response</h3>
+          <p>Every inquiry gets a personal reply within one business day — usually much faster.</p>
+        </div>
+        <div class="side-card reveal" style="--rd:.3s">
+          <h3><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Local &amp; proud</h3>
+          <p>Based in Alberta, Canada — serving local businesses everywhere.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="next">
+  <div class="container">
+    <h2 class="section-title reveal">What happens <span class="serif-accent">next?</span></h2>
+    <div class="next-grid">
+      <div class="next-card reveal">
+        <div class="num">1</div>
+        <h3>We chat</h3>
+        <p>A quick, friendly conversation about your business — 30 minutes, tops. You'll get a fixed quote on the spot.</p>
+      </div>
+      <div class="next-card reveal" style="--rd:.12s">
+        <div class="num">2</div>
+        <h3>We design</h3>
+        <p>Your custom website takes shape within days. You review it, we refine it until you love it.</p>
+      </div>
+      <div class="next-card reveal" style="--rd:.24s">
+        <div class="num">3</div>
+        <h3>You launch</h3>
+        <p>Your site goes live in about a week — and you only pay once you've approved everything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <a href="index.html" class="logo" aria-label="Domino Websites home">
+      <span class="logo-tile" aria-hidden="true"><span></span></span>
+      Domino<em>.</em>
+    </a>
+    <ul class="foot-links">
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="foot-copy">© <span id="year"></span> Domino Websites. Beautiful websites for local businesses.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+document.getElementById('year').textContent = new Date().getFullYear();
+const nav = document.getElementById('siteNav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+const burger = document.getElementById('hamburger');
+const links = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  const open = links.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+});
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Quote form → WhatsApp click-to-chat */
+const WHATSAPP_NUMBER = '14036294003';
+const form = document.getElementById('quoteForm');
+const msg = document.getElementById('formMsg');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const name = form.elements['name'].value.trim();
+  const biz = form.elements['business'].value.trim();
+  const email = form.elements['email'].value.trim();
+  const phone = form.elements['phone'].value.trim();
+  if (!name || !biz || !phone || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    msg.textContent = 'Please fill in all fields with a valid email.';
+    msg.style.color = '#F08A7E';
+    return;
+  }
+  const text = encodeURIComponent(
+    `Hi Domino Websites! I'd like a free quote.\n\n` +
+    `Name: ${name}\n` +
+    `Business: ${biz}\n` +
+    `Email: ${email}\n` +
+    `Phone: ${phone}`
+  );
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener');
+  msg.style.color = '';
+  msg.textContent = 'Opening WhatsApp — just hit send and we\'ll get right back to you!';
+  form.reset();
+});
+})();
+</script>
+</body>
+</html>
