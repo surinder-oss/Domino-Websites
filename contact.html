@@ -121,12 +121,12 @@ footer{border-top:1px solid var(--border);padding:52px 0 40px;background:var(--b
   .next-grid{grid-template-columns:1fr;max-width:480px}
 }
 @media(max-width:768px){
-  .nav-links{position:fixed;inset:0;background:rgba(10,10,11,.97);backdrop-filter:blur(20px);
+  .nav-links{position:fixed;inset:0;background:#0A0A0B;
     flex-direction:column;justify-content:center;gap:34px;transform:translateY(-100%);
-    transition:transform .5s var(--ease-out);z-index:-1}
+    transition:transform .5s var(--ease-out);z-index:1;padding:0;margin:0}
   .nav-links.open{transform:translateY(0)}
   .nav-links a{font-size:22px;font-family:var(--font-head)}
-  .hamburger{display:flex;z-index:10}
+  .hamburger{display:flex;position:relative;z-index:10}
   .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .hamburger.open span:nth-child(2){opacity:0}
   .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -276,6 +276,7 @@ burger.addEventListener('click', () => {
   const open = links.classList.toggle('open');
   burger.classList.toggle('open', open);
   burger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
 });
 const io = new IntersectionObserver(entries => {
   entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
